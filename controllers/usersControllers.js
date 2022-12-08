@@ -26,9 +26,6 @@ module.exports = {
 
       //se espera a que se termine el  proceso
       const data = await User.create(user);
-      //Establecer IMC CLIENTE (id 1) por defecto
-      //await IMC.create(data.id, data.id_imc, data.imc_value);
-
       return res.status(201).json({
         success: true,
         message: "Registro realizado. Inicia sesión.",
