@@ -4,8 +4,6 @@ const cors = require("cors");
 const express = require("express");
 const logger = require("morgan");
 
-
-
 app.use(logger("dev"));
 
 app.disable("x-powered-by");
@@ -28,11 +26,13 @@ app.use(
     extended: true,
 })
 );
-app.use((err, req, res, next) => {
-  console.log(err);
-  res.status(err.status || 500).send(err.stack);
-});
+
 
 app.listen(port, () => {
   console.log(`Servidor funcionando en puerto ${port}`);
+});
+
+app.use((err, req, res, next) => {
+  console.log(err);
+  res.status(err.status || 500).send(err.stack);
 });
